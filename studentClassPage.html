@@ -1,0 +1,16 @@
+<html>
+	<body style="background-color:pink;">
+		<h1 id="className"></h1>
+		<p id="classInstructor">yo</p>
+
+		<script>
+			const name = document.getElementById("className");
+			const instructor = document.getElementById("classInstructor");
+		
+			let thisClass = JSON.parse(localStorage.getItem("templateClass"));		
+
+			name.innerHTML = thisClass.className;
+			instructor.innerHTML = "Instructor: " + thisClass.classInstructor;
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+	<body style="background-color:pink;">
+		<div id="intro">
+			<h1> This is an instructor dashboard template </h1>
+			<p> This has a link to a made up class named "SOEN 287" taught by "Mohammad Raihanul Bashar".</p>	
+			<button onclick="document.location='instructorClassPage.html'">Go to template class page</button>
+			<button onclick="document.location='instructorManageAccountPage.html'">Go to manage account page</button>
+			<button onclick="document.location='instructorCreateClassPage.html'">Go to create class page</button>
+		</div>
+
+		<script>
+			const templateClass = new Object({
+				className: "SOEN 287",
+				classInstructor: "Mohammad Raihanul Bashar"
+			});
+
+			localStorage.setItem("templateClass", JSON.stringify(templateClass));
+			localStorage.setItem("test", "testma balls");
+		</script>
+	</body>
+</html>
