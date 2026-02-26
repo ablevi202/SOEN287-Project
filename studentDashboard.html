@@ -1,20 +1,107 @@
+<!DOCTYPE html>
 <html>
-	<body style="background-color:pink;">
-		<div id="intro">
-			<h1> This is a student dashboard template </h1>
-			<p> This has a link to a made up class named "SOEN 287" taught by "Mohammad Raihanul Bashar".</p>	
-			<button onclick="document.location='studentClassPage.html'">Go to template class page</button>
-			<button onclick="document.location='studentManageAccountPage.html'">Go to manage account page</button>
+	<head>
+		<link rel="stylesheet" href="studentDashboardStyle.css">
+	</head>
+	<body style="background-color:white;">
+		<div id="navigation">
+			<ul id="navbar">
+				<div style="float: left;"><a href="studentDashboard.html"><img src="images/logo.png" id="logo"></a></div>
+				<li style="float: left; font-family: Arial;"><p id="welcome-message"></p></li>
+				<li><a href="">Logout</a></li>
+				<li><a href="studentManageAccountPage.html">Manage Account</a></li>
+				<li><a href="">Add Class</a></li>
+			</u1>
+		</div>
+		
+		<div id="classes">
+			<h1 style="font-family:arial; font-weight:bold; text-align:center;">Your Enrolled Classes</h1>
+			<div id="class-deck"></div>
+		</div>
+
+		<div id="upcoming-assignments">
+			<h1 style="font-family:arial; font-weight:bold; text-align:center;">Upcoming Assignments</h1>
+			<div id="assignment-deck"></div>
 		</div>
 
 		<script>
-			const templateClass = new Object({
-				className: "SOEN 287",
-				classInstructor: "Mohammad Raihanul Bashar"
+			const student = new Object({
+				name: "Samantha Robertson"
 			});
 
-			localStorage.setItem("templateClass", JSON.stringify(templateClass));
+			let x = document.getElementById("welcome-message");
+			x.innerHTML = "Welcome " + student.name + "!";
+
+
+			let class1 = new Object({
+				objectName: "class1",
+				name: "Soen 287",
+				instructor: "Joe"
+			});
+    
+			let class2 = new Object({
+				objectName: "class2",
+				name: "Comp 345",
+				instructor: "Joe"
+			});
+
+			let class3 = new Object({
+				objectName: "class3",
+				name: "Comp 331",
+				instructor: "Joe"
+			});
+
+			let class4 = new Object({
+				objectName: "class4",
+				name: "Soen 481",
+				instructor: "Joe"
+			});
+    
+			const classes = [class1, class2, class3, class4];
+			const y =  document.getElementById("class-deck");
+    
+			for(let i = 0; i < classes.length; i++){
+				y.innerHTML += "<div onclick=\"openCoursePage(" + classes[i].objectName + ")\"><a href=\"studentClassPage.html\">" + classes[i].name + "</a></div>";
+			}
+    
+			function openCoursePage(className){
+				localStorage.setItem("className", JSON.stringify(className));
+			}
+
+
+			let assignment1 = new Object({
+				dueDate: new Date(2026, 2, 27),
+				name: "Assignment 1",
+				className: "Soen 287"
+			});
+
+			let assignment2 = new Object({
+				dueDate: new Date(2026, 3, 1),
+				name: "Assignment 3",
+				className: "Comp 331"
+			});
+
+			let assignment3 = new Object({
+				dueDate: new Date(2026, 3, 1),
+				name: "Assignment 2",
+				className: "Soen 287"
+			});
+
+			let assignment4 = new Object({
+				dueDate: new Date(2026, 3, 9),
+				name: "Project",
+				className: "Comp 345"
+			});
+
+			let assignments = [assignment1, assignment2, assignment3, assignment4];
+			const z = document.getElementById("assignment-deck");
+				
+			for(let i = 0; i < assignments.length; i++){
+				let dueDateString = assignments[i].dueDate.toDateString().substring(0, 10);
+				dueDateString = dueDateString.substring(0, 3) + "," + dueDateString.substring(3);
+				z.innerHTML += "<div><h1 style=\"font-family:arial;\">" + dueDateString + "</h1><p style=\"font-family:arial;\">" + assignments[i].className + " - " + assignments[i].name + "</p></div>";
+			}			
+    
 		</script>
 	</body>
-
 </html>
