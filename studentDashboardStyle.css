@@ -69,6 +69,7 @@ body {
 #class-deck div a{
 	text-decoration: none;
 	color: black;
+	font-family: arial;
 }
 
 #class-deck div:hover {
@@ -97,4 +98,5 @@ body {
 
 #assignment-deck div {
 	padding: 10px
+
 }
