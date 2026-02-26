@@ -1,5 +1,53 @@
-<html>
-	<body style="background-color:pink;">
-		<h1>Create Class</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create course</title>
+    <Style>
+        body{
+            background-color: rgb(195, 216, 244);
+            
+        }
+        .create-layout{
+            padding: 40px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        input, select{
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+    </Style>
+</head>
+<body>
+
+    <main class="create-layout">
+
+    <h2>Create new course</h2>
+
+    <label>Course Code</label>
+    <input type="text"> 
+
+    <label>Term</label>
+    <select>
+        <option>Winter 2026</option>
+        <option>Summer 2026</option>
+        <option>Fall 2026</option>
+    </select>
+
+    <button type="button"
+    onclick="window.location.href='InstructorDashboard.html'">
+    create
+    </button>
+    <a href="InstructorDashboard.html">back to Dashboard</a>
+    
+</body>
 </html>
