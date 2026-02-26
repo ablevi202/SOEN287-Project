@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(195, 216, 244);
+        }
+        .section{
+            background-color: blanchedalmond;
+            border: 2px solid;
+            padding: 15px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class>
+        <h1>Manage courses</h1>
+        <a href="InstructorDashboard.html">back to Dashboard</a>
+    </header>
+    <main>
+        <h2>SOEN287 - web programming</h2>
+        <p><strong>Term:</strong> Winter 2026</p>
+
+        <div class="section">
+            <h3>Assessement Categories and Weight</h3>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>weight (%)</th>
+            </tr>
+            <tr>
+                <td>assignemts</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>midterm</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>final</td>
+                <td>50</td>
+            </tr>
+        </table>
+
+        <p style="margin-top: 10px;">
+        <button type="button">Add Category</button>
+        <button type="button">edit ponderation</button>
+        </p>
+    </div>
+    <div class="section">
+        <h3>course status</h3>
+        <p>thsi course is enabled:</p>
+        <button type="button">Disable course</button>
+    </div>
+
+    <div class="section">
+        <h3>usage Statistics</h3>
+        <p>students completed Assessements: 73%</p>
+        <p>students entered grades: 62%</p>
+    </div>
+    
+    </main>
+</body>
+</html>
