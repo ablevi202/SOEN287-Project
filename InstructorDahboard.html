@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard</title>
+    
+
+    <style>
+        body{
+            margin: 0;
+            background-color: rgb(195, 216, 244);
+        }
+        header {
+            background-color: blue;
+            color: white;
+            padding: 15px  20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px;
+            border-color: black;
+        }
+        header h1{
+            margin: 0;
+        }
+
+        header a{
+            color: white;
+            margin-left: 15px;
+        }
+
+        main{
+            padding: 20px;
+        }
+        .course{
+            background-color: blanchedalmond;
+            border: 2px solid;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .btn{
+            border: 1.5px solid;
+            border-color: black;
+            display: inline-block;
+            background: rgb(57, 115, 250);
+            color: white;
+            padding: 8px 12px;
+            margin-top: 5px;
+        }
+
+        .course-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .dashboard-layout{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            padding: 20px 40px;
+            min-height: 80vh;
+        }
+
+        .sidebar{
+            border: 4px solid;
+            padding: 20px;
+            background: beige;
+            
+        }
+
+        .assignment{
+            border: 2px solid;
+            
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+
+        
+
+    </style>
+    
+</head>
+<body>
+    
+    
+    <header class="header">
+        <div class="header left">
+        <h1> Instructor Dashboard</h1>
+        </div>
+        <div class="header right">
+            <span class="instructor name"> Logged in as: Prof 
+                <strong>John Doe</strong>
+            </span>
+            <a class="btn" href="InstructorManageAccountPage.html"></a>
+            <a href="index.html">logout</a>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        
+        <div class="course-area">
+        <h2>Your courses</h2>
+        <a class="btn" href="InstructorCreateClassPage.html">Create</a>
+        <div class="course-container">
+        
+        <div class="course">
+            <h3>SOEN287 - Web programming</h3>
+            <p>Term: winter 2026</p>
+            <a class="btn" href="InstructorClassPage.html">Manage</a>
+        </div>
+
+        <div class="course">
+            <h3>MAST218 - Multivarious calculus</h3>
+            <p>Term: winter 2026</p>
+            <a class="btn" href="InstructorClassPage.html">Manage</a>
+        </div>
+
+        <div class="course">
+            <h3>COMP233 - Statistics</h3>
+            <p>Term: winter 2026</p>
+            <a class="btn" href="InstructorClassPage.html">Manage</a>
+        </div>
+        </div>
+        </div>
+
+        <div class="sidebar">
+            <h3>Upcoming Assignments</h3>
+
+            <div class="assignment">
+                <P><strong>Assignmet 1</strong></P>
+                <p>Due: January 10, 2026 at: 11:59pm</p>
+            </div>
+
+            <div class="assignment">
+                <p><strong>Project Proposal</strong></p>
+                <p>Due: January  12, 2026 at: 11:59pm</p>
+            </div>
+        </div>
+
+    </main>
+
+    
+    
+</body>
+
+</html>
