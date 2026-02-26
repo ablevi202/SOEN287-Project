@@ -58,20 +58,23 @@ body {
 }
 
 #class-deck div {
-	background-color: #F786AA;
-	color: #000;
-	padding: 40px;
-	font-size: 30px;
-	text-align: center;
 	border: 2px solid black;
 	margin: 0.125rem;
-
+	border-radius: 7px;
 }
 
 #class-deck div a{
 	text-decoration: none;
 	color: black;
+	display: block;
 	font-family: arial;
+	background-color: #F786AA;
+	color: #000;
+	padding: 40px;
+	font-size: 30px;
+	text-align: center;
+	border-radius: 5px;
+
 }
 
 #class-deck div:hover {
@@ -100,6 +103,4 @@ body {
 
 #assignment-deck div {
 	padding: 10px
-
 }
-
