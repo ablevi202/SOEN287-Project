@@ -1,0 +1,91 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#navbar {
+	background-color: #F786AA;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	list-style-type: none;
+	border-bottom: 2px solid black;
+}
+    
+
+#navbar li {
+	float: right;
+}
+
+#navbar li a {
+	display: inline-block;
+	padding: 1rem 2rem;
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	font-family: Arial;
+}
+    
+#navbar li a:hover {
+	background-color: #d4819b;
+}
+
+#logo {
+	display: inline-block;
+	overflow: hidden;
+	width: auto;
+	height: 2.5rem;
+	padding-top: 0.25rem;
+
+}
+
+#intro {
+	padding-bottom: 0.25rem;
+}
+
+#assignment-deck {
+	display: grid;
+	width: 41rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+	margin-bottom: 5rem;
+	background-color: white;
+	padding: 5px;
+	gap: 5px;
+	border: 2px solid black;
+	border-radius: 7px;
+
+}
+
+.assignment-line {
+	font-family: Arial;
+	display: inline-block;
+}
+
+.assignment-line p {
+	display: inline-block;
+	padding-right: 5rem;
+	padding-left: 3rem;
+}
+
+
+
+.assignment-line input {
+	display: inline-block;
+	width: 30px;
+	padding-right: 0.2rem;
+	padding-left: 0.2rem;
+}
+.assignment-line label {
+	display: inline-block;
+	padding-right: 0.2rem;
+	padding-left: 0.2rem;
+
+}
+.assignment-line button {
+	display: inline-block;
+	padding-right: 0.2rem;
+	margin-left: 3rem;
+}
