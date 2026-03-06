@@ -1,137 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructor Dashboard</title>
+
 <style>
-    body {
-  margin: 0;
-  background: #e9eef7; 
-  font-family: Arial, sans-serif;
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
 }
 
-/* NAV BAR */
-#navigation {
-  background: blue; /* keep your blue */
-  border-bottom: 3px solid #000;
+/* NAVBAR */
+
+#navigation{
+    background:white;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-#navbar {
-  margin: 0;
-  padding: 10px 15px;
-  list-style: none;
-  overflow: hidden; /* helps with floats */
+#navbar{
+    margin:0;
+    padding:0 25px;
+    list-style:none;
+    min-height:75px;
 }
 
-#nav-logo {
-  float: left;
-  margin-right: 12px;
+#nav-logo{
+    float:left;
+    margin-top:15px;
 }
 
-#logo {
-  height: 35px;
+#logo{
+    height:42px;
 }
 
-#nav-welcome {
-  float: left;
-  color: white;
-  font-weight: bold;
-  margin-top: 6px;
+#nav-welcome{
+    float:left;
+    margin-top:26px;
+    margin-left:15px;
+    font-weight:bold;
 }
 
-#nav-welcome p {
-  margin: 0;
+#nav-welcome p{
+    margin:0;
 }
 
-/* right side links */
-.nav-right {
-  float: right;
-  margin-left: 20px;
-  margin-top: 6px;
+.nav-right{
+    float:right;
 }
 
-#navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-
-#classes, #upcoming-assignments {
-  width: 70%;
-  margin: 40px auto;
-}
-
-#classes h1, #upcoming-assignments h1 {
-  text-align: center;
-  font-weight: bold;
+.nav-right a{
+    display:block;
+    padding:28px 20px;
+    text-decoration:none;
+    color:black;
 }
 
 
-#class-deck {
-  border: 3px solid #000;
-  padding: 25px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+
+
+
+
+#classes,
+#upcoming-assignments{
+    width:75%;
+    margin:50px auto;
+}
+
+h1{
+    text-align:center;
 }
 
 
-.course-box {
-  background: #f3c1cf; 
-  border: 3px solid #000;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+
+#class-deck{
+    margin-top:25px;
+    padding:30px;
+    background:white;
+    border-radius:8px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
-.course-box a {
-  color: black;
-  text-decoration: none;
+/* COURSE  */
+
+.course-box{
+    background:#f4ae2b;
+    height:120px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    font-weight:bold;
+
+    border-radius:6px;
+
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+
+    transition:transform .15s;
+}
+
+
+.course-box a{
+    text-decoration:none;
+    color:black;
+}
+
+/* ASSIGNMENTS */
+
+#assignment-deck{
+    margin-top:25px;
+    padding:30px;
+    background:white;
+
+    border-radius:8px;
+
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.assignment{
+    margin-bottom:30px;
+}
+
+.assignment h2{
+    margin-bottom:8px;
 }
 
 </style>
-
 </head>
+
+
 <body>
-    <body>
 
-  <div id="navigation">
-    <ul id="navbar">
-      <li id="nav-logo">
-        <a href="instructorDashboard2.html">
-          <img src="logo.png" id="logo" alt="logo" />
-        </a>
-      </li>
+<div id="navigation">
+<ul id="navbar">
 
-     
-      <li id="nav-welcome">
-        <p id="welcome-message"></p>
-      </li>
+<li id="nav-logo">
+<a href="instructorDashboard2.html">
+<img src="logo.png" id="logo">
+</a>
+</li>
 
-      
-      <li class="nav-right"><a href="index.html">Logout</a></li>
-      <li class="nav-right"><a href="InstructorManageAccountPage.html">Manage Account</a></li>
-      <li class="nav-right"><a href="InstructorCreateClassPage.html">Create Class</a></li>
-    </ul>
-  </div>
+<li id="nav-welcome">
+<p id="welcome-message"></p>
+</li>
 
-  
-  <div id="classes">
-    <h1>Your Courses</h1>
-    <div id="class-deck"></div>
-  </div>
+<li class="nav-right"><a href="index.html">Logout</a></li>
+<li class="nav-right"><a href="InstructorCreateClassPage.html" class="active-link">Add a class</a></li>
+<li class="nav-right"><a href="InstructorClassPage3.html">My Courses</a></li>
+<li class="nav-right"><a href="#">Home</a></li>
 
-  <div id="upcoming-assignments">
-    <h1>Upcoming Assignments</h1>
-    <div id="assignment-deck"></div>
-  </div>
+</ul>
+</div>
 
-  <script src="InstructorDashboard.js"></script>
-</body>
-    
+
+<div id="classes">
+
+<h1>Your Courses</h1>
+
+<div id="class-deck"></div>
+
+</div>
+
+
+<div id="upcoming-assignments">
+
+<h1>Upcoming Assignments</h1>
+
+<div id="assignment-deck"></div>
+
+</div>
+
+
+<script>
+
+
+
+const instructor = {
+name:"John Doe"
+};
+
+document.getElementById("welcome-message").innerHTML =
+"Welcome Instructor" + instructor.name + "!";
+
+
+/* courses */
+
+const courses = [
+
+{objectName:"course1", code:"SOEN 287"},
+{objectName:"course2", code:"MAST 218"},
+{objectName:"course3", code:"COMP 233"},
+{objectName:"course4", code:"COMP 345"}
+
+];
+
+const deck = document.getElementById("class-deck");
+
+for(let i=0;i<courses.length;i++){
+
+deck.innerHTML +=
+
+"<div class='course-box' onclick=\"openCoursePage('" + courses[i].objectName + "')\">" +
+
+"<a href='InstructorClassPage3.html'>" +
+
+courses[i].code +
+
+"</a></div>";
+
+}
+
+
+function openCoursePage(courseId){
+
+localStorage.setItem("courseId",courseId);
+
+}
+
+
+/* assignments */
+
+
+const assignments=[
+
+{date:"Fri, Mar 27",text:"SOEN 287 - Assignment 1"},
+{date:"Wed, Apr 01",text:"COMP 233 - Assignment 3"}
+
+];
+
+const assignmentDeck=document.getElementById("assignment-deck");
+
+for(let i=0;i<assignments.length;i++){
+
+assignmentDeck.innerHTML +=
+
+"<div class='assignment'>" +
+
+"<h2>"+assignments[i].date+"</h2>" +
+
+"<p>"+assignments[i].text+"</p>" +
+
+"</div>";
+
+}
+
+</script>
+
 </body>
 </html>
