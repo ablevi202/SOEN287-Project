@@ -36,6 +36,8 @@ body{
     height:42px;
 }
 
+
+
 #nav-welcome{
     float:left;
     margin-top:26px;
@@ -58,7 +60,13 @@ body{
     color:black;
 }
 
-
+#user-icon{
+    height: 32px;
+    width: 32px;
+    margin-top: -10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
 
 
 
@@ -149,7 +157,7 @@ h1{
 
 <li id="nav-logo">
 <a href="instructorDashboard2.html">
-<img src="logo.png" id="logo">
+<img src="book (1).png" id="logo">
 </a>
 </li>
 
@@ -157,10 +165,12 @@ h1{
 <p id="welcome-message"></p>
 </li>
 
-<li class="nav-right"><a href="index.html">Logout</a></li>
+<li class="nav-right"><a href="index.html">
+<img src="icon.png" id = "user-icon" alt="user"></a></li> 
 <li class="nav-right"><a href="InstructorCreateClassPage.html" class="active-link">Add a class</a></li>
 <li class="nav-right"><a href="InstructorManageAccountPage.html">Manage account</a></li>
 <li class="nav-right"><a href="#">Home</a></li>
+
 
 </ul>
 </div>
@@ -256,11 +266,6 @@ assignmentDeck.innerHTML +=
 "</div>";
 
 }
-
-</script>
-
-</body>
-</html>
 
 </script>
 
