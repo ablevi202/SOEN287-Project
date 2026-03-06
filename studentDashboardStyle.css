@@ -54,6 +54,7 @@ body {
 	padding: 5px;
 	gap: 5px;
 	border: 2px solid black;
+	border-radius: 7px;
 
 }
 
@@ -85,6 +86,7 @@ body {
 
 #upcoming-assignments {
 	margin-top: 6rem;
+
 }
 
 #assignment-deck {
@@ -98,10 +100,10 @@ body {
 	padding: 5px;
 	gap: 5px;
 	border: 2px solid black;
+	border-radius: 7px;
 
 }
 
 #assignment-deck div {
 	padding: 10px
 }
-
