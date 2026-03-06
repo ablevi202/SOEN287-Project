@@ -4,43 +4,51 @@
 		<link rel="stylesheet" href="studentClassPageStyle.css">
 	</head>
 
-	<body style="background-color:white;">
+	<body style="background-color:#fff5e6;">
 
-		<div id="navigation">
-			<ul id="navbar">
-				<div style="float: left;"><a href="studentDashboard.html"><img src="images/logo.png" id="logo"></a></div>
-				<li style="float:left; font-family: Arial;"><a href="studentDashboard.html">Dashboard</a></li>
-				<li style="float: left; font-family: Arial; padding-left: 0.5rem;"><p id="welcome-message"></p></li>
-				<li><a href="">Logout</a></li>
-				<li><a href="studentManageAccountPage.html">Manage Account</a></li>
-				<li><a href="">Add Class</a></li>
-			</u1>
-		</div>
+		<nav class = "navbar">
+
+			<div class = "logo">
+				<img src = "book.webp" alt = "Logo">
+				<h3>Smart Course Companion</h3>
+			</div>
+
+			<ul class = "nav-links">
+				<li><a href="studentDashboard.html" class="nav-link">Home</a></li>
+				<li><a href="student-addclass.html" class="nav-link">Add a class</a></li>
+				<li><a href="contact-us.html" class="nav-link">Contact us</a></li>
+				<li><a href="student-profil.html"> <img src = "icon.webp" alt = "User Icon"></a></li>
+			</ul>
+		</nav>
 
 		<div id="intro">
-			<h1 id="className" style="font-family:arial; font-weight:bold; text-align:center;"></h1>
+			<h1 id="className" style="font-family:arial; font-weight:bold; text-align:center; font-size: 40px;"></h1>
 			<p id="classInstructor" style="font-family:arial; text-align:center; padding-top:0.1rem; margin-top:0;"></p>
 			<p id="classAverage" style="font-family:arial; text-align:center;">Current Course Average: </p>
 		</div>
 
 		<div id="assignments">
-			<h1 style="font-family:arial; font-weight:bold; text-align:center;">Assignments</h1>
+			<h1 style="font-family:arial; font-weight:bold; text-align:center; margin-top: 4rem;">Assignments</h1>
 			<div id="assignment-deck"></div>
 		</div>
 
-		<div id="score-chart" align="center">
+		<div id="score-chart" align="center" style="margin-bottom: 5rem;">
 			<canvas id="scoreChart" style="width:100%;max-width:800px"></canvas>
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 		<script>
 
-			const student = new Object({
-				name: "Samantha Robertson"
-			});
-
-			const welcome = document.getElementById("welcome-message");
-			welcome.innerHTML = "Welcome " + student.name + "!";
+		document.addEventListener('DOMContentLoaded', function() {
+		const currentPage = window.location.pathname.split('/').pop();
+		const navLinks = document.querySelectorAll('.nav-link');
+    
+		navLinks.forEach(link => {
+		if (link.getAttribute('href') === currentPage) {
+			link.classList.add('active');
+		}
+		});
+		});
 
 			const name = document.getElementById("className");
 			const instructor = document.getElementById("classInstructor");
@@ -70,8 +78,8 @@
 					labels: xValues,
 					datasets: [{
 						fill: false,
-						backgroundColor: "rgba(247,134,170,1)",
-   						borderColor: "rgba(247,134,170,0.8)",
+						backgroundColor: "rgba(248, 169, 40,1)",
+   						borderColor: "rgba(248, 169, 40,0.8)",
 						data: thisClass.courseAverages
 					}]
 				},
