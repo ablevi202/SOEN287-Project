@@ -1,16 +1,94 @@
 <html>
-	<body style="background-color:pink;">
-		<h1 id="className"></h1>
-		<p id="classInstructor">yo</p>
 
+	<head>
+		<link rel="stylesheet" href="studentClassPageStyle.css">
+	</head>
+
+	<body style="background-color:white;">
+
+		<div id="navigation">
+			<ul id="navbar">
+				<div style="float: left;"><a href="studentDashboard.html"><img src="images/logo.png" id="logo"></a></div>
+				<li style="float:left; font-family: Arial;"><a href="studentDashboard.html">Dashboard</a></li>
+				<li style="float: left; font-family: Arial; padding-left: 0.5rem;"><p id="welcome-message"></p></li>
+				<li><a href="">Logout</a></li>
+				<li><a href="studentManageAccountPage.html">Manage Account</a></li>
+				<li><a href="">Add Class</a></li>
+			</u1>
+		</div>
+
+		<div id="intro">
+			<h1 id="className" style="font-family:arial; font-weight:bold; text-align:center;"></h1>
+			<p id="classInstructor" style="font-family:arial; text-align:center; padding-top:0.1rem; margin-top:0;"></p>
+			<p id="classAverage" style="font-family:arial; text-align:center;">Current Course Average: </p>
+		</div>
+
+		<div id="assignments">
+			<h1 style="font-family:arial; font-weight:bold; text-align:center;">Assignments</h1>
+			<div id="assignment-deck"></div>
+		</div>
+
+		<div id="score-chart" align="center">
+			<canvas id="scoreChart" style="width:100%;max-width:800px"></canvas>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 		<script>
+
+			const student = new Object({
+				name: "Samantha Robertson"
+			});
+
+			const welcome = document.getElementById("welcome-message");
+			welcome.innerHTML = "Welcome " + student.name + "!";
+
 			const name = document.getElementById("className");
 			const instructor = document.getElementById("classInstructor");
+			const average = document.getElementById("classAverage");
 		
-			let thisClass = JSON.parse(localStorage.getItem("templateClass"));		
+			let thisClass = JSON.parse(localStorage.getItem("className"));		
 
-			name.innerHTML = thisClass.className;
-			instructor.innerHTML = "Instructor: " + thisClass.classInstructor;
+			name.innerHTML = thisClass.name;
+			instructor.innerHTML = "Instructor: " + thisClass.instructor;
+			average.innerHTML += thisClass.courseAvg + "%";
+
+			const assignmentlist = document.getElementById("assignment-deck");
+			for(let i = 0; i < thisClass.assignments.length; i++){
+				assignmentlist.innerHTML += "<div class=\"assignment-line\"><p>" + thisClass.assignments[i].name + "</p><label for=\"gnum\">Enter Grade: </label><input type=\"text\" id=\"grade-numerator\" name=\"gnum\"></input><label for=\"den\"> / </label><input type=\"text\" id=\"grade-denominator\" name=\"gden\"></input><button type=\"button\">Mark Complete</button></div>";
+			}
+
+			let xValues = [];
+			for(let i = 0; i < thisClass.courseAverages.length; i++){
+				xValues.push(i);
+			}
+			console.log(xValues);
+			console.log(thisClass);
+
+			const scoreChart = new Chart("scoreChart", {
+				type: "line",
+				data: {
+					labels: xValues,
+					datasets: [{
+						fill: false,
+						backgroundColor: "rgba(247,134,170,1)",
+   						borderColor: "rgba(247,134,170,0.8)",
+						data: thisClass.courseAverages
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						text: "Course Average over Time"
+					},
+					legend: {display: false},
+					scales: {
+						yAxes: [{ticks: {min: 0, max:100}}],
+						xAxes: [{display: false,}]
+					},
+
+				}
+			});
+			
 		</script>
 	</body>
 </html>
