@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+ <title>Student Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <script src="nav-active.js"></script>
+
+
+
+</head>
+
+
+<body class = "homepage">
+
+<nav class = "navbar">
+
+    <div class = "logo">
+        <img src = "book.png" alt = "Logo">
+        <h3>Smart Course Companion</h3>
+    </div>
+
+    <ul class = "nav-links">
+        <li><a href="studentDashboard.html" class="nav-link">Home</a></li>
+        <li><a href="student-addclass.html" class="nav-link">Course Catalog</a></li>
+        <li><a href="index.html" class="nav-link">Logout</a></li>
+        <li><a href="studentmanageaccountpage.html"> <img src = "icon.png" alt = "User Icon"></a></li>
+    </ul>
+
+</nav>
+
+
+<div class = "all-courses-container">
+    <h1>Course Catalog</h1>
+    
+    <div class="search-bar">
+        <input type="text" id="courseSearchInput" placeholder="Search courses by name" onkeyup="searchCourses()">
+    </div>
+    
+    <div class="courses-grid">
+        <div class="course-card" data-course-id="cs101">
+            <img src="im.jpeg" alt="Course Image" class="course-image">
+            <div class="course-content">
+                <h3 class="course-title">COMP 101</h3>
+                <p class="course-description">Introduction to programming and computer science fundamentals. Learn the basics of coding.</p>
+                <div class="course-actions">
+                    <button class="btn-more-info" onclick="openCourseModal('cs101')">More Info</button>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card" data-course-id="math201">
+            <img src="im.jpeg" alt="Course Image" class="course-image">
+            <div class="course-content">
+                <h3 class="course-title">MATH 201</h3>
+                <p class="course-description">Advanced calculus and mathematical analysis. Perfect for STEM students.</p>
+                <div class="course-actions">
+                    <button class="btn-more-info" onclick="openCourseModal('math201')">More Info</button>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card" data-course-id="phys150">
+            <img src="im.jpeg" alt="Course Image" class="course-image">
+            <div class="course-content">
+                <h3 class="course-title">PHYS 150</h3>
+                <p class="course-description">Classical mechanics and thermodynamics. Hands-on laboratory experience included.</p>
+                <div class="course-actions">
+                    <button class="btn-more-info" onclick="openCourseModal('phys150')">More Info</button>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card" data-course-id="phil101">
+            <img src="im.jpeg" alt="Course Image" class="course-image">
+            <div class="course-content">
+                <h3 class="course-title">PHIL 101</h3>
+                <p class="course-description">Introduction to philosophical thinking and major philosophical questions throughout history.</p>
+                <div class="course-actions">
+                    <button class="btn-more-info" onclick="openCourseModal('phil101')">More Info</button>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card" data-course-id="web250">
+            <img src="im.jpeg" alt="Course Image" class="course-image">
+            <div class="course-content">
+                <h3 class="course-title">SOEN 250</h3>
+                <p class="course-description">Modern web development with HTML, CSS, and JavaScript. Build real-world projects.</p>
+                <div class="course-actions">
+                    <button class="btn-more-info" onclick="openCourseModal('web250')">More Info</button>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCourseModal()">&times;</span>
+        <h2 id="modalCourseTitle"></h2>
+        <div class="modal-body">
+            <div class="modal-section">
+                <h3>Description</h3>
+                <p id="modalDescription"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Instructor</h3>
+                <p id="modalInstructor"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Course Hours</h3>
+                <p id="modalHours"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Credits</h3>
+                <p id="modalCredits"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Exam Modalities</h3>
+                <p id="modalExams"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Bibliography</h3>
+                <p id="modalBibliography"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Prerequisites</h3>
+                <p id="modalPrerequisites"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Detailed course data
+const courseDetails = {
+    cs101: {
+        title: "COMP 101",
+        description: "Introduction to programming and computer science fundamentals. This course covers basic programming concepts, data structures, algorithms, and problem-solving techniques essential for aspiring computer scientists.",
+        instructor: "Dr. Smith",
+        hours: "3 hours lectures + 2 hours lab per week",
+        credits: "3 credits",
+        exams: "Midterm exam (30%), Final exam (40%), Assignments (20%), Lab work (10%)",
+        bibliography: "Introduction to Computer Science by John Doe<br>Programming Fundamentals by Jane Smith<br>Python Programming by Robert Johnson",
+        prerequisites: "None"
+    },
+    math201: {
+        title: "MATH 201",
+        description: "Advanced calculus and mathematical analysis covering multivariable calculus, differential equations, and mathematical modeling. This course provides a rigorous foundation for higher-level mathematics and applications in science and engineering.",
+        instructor: "Dr. Johnson",
+        hours: "4 hours lectures + 1 hour tutorial per week",
+        credits: "4 credits",
+        exams: "Midterm exam (35%), Final exam (45%), Problem sets (20%)",
+        bibliography: "Calculus: Early Transcendentals by James Stewart<br>Advanced Calculus by Patrick M. Fitzpatrick<br>Mathematical Analysis by Tom Apostol",
+        prerequisites: "Mathematics 101 or equivalent"
+    },
+    phys150: {
+        title: "PHYS 150",
+        description: "Classical mechanics and thermodynamics providing foundational knowledge of physical laws. Includes hands-on laboratory experience with real-world applications and experiments in mechanics, energy, and heat.",
+        instructor: "Dr. Williams",
+        hours: "3 hours lectures + 3 hours lab per week",
+        credits: "4 credits",
+        exams: "Midterm exam (25%), Final exam (35%), Lab reports (25%), Quizzes (15%)",
+        bibliography: "University Physics by Young and Freedman<br>Classical Mechanics by John R. Taylor<br>Thermodynamics: An Engineering Approach by Çengel",
+        prerequisites: "Mathematics 101"
+    },
+    phil101: {
+        title: "PHIL 101",
+        description: "Introduction to philosophical thinking and major philosophical questions throughout history. Explore ethics, metaphysics, epistemology, and logic through the works of great philosophers from ancient to modern times.",
+        instructor: "Dr. Anderson",
+        hours: "3 hours lectures per week",
+        credits: "3 credits",
+        exams: "Essays (40%), Final exam (35%), Participation (15%), Presentations (10%)",
+        bibliography: "The Problems of Philosophy by Bertrand Russell<br>Philosophy: The Basics by Nigel Warburton<br>The Republic by Plato",
+        prerequisites: "None"
+    },
+    web250: {
+        title: "SOEN 250",
+        description: "Modern web development with HTML, CSS, and JavaScript. Learn to build responsive, interactive websites and web applications. Covers front-end frameworks, API integration, and best practices in web development.",
+        instructor: "Dr. Chen",
+        hours: "2 hours lectures + 3 hours lab per week",
+        credits: "3 credits",
+        exams: "Final project (40%), Midterm project (30%), Assignments (20%), Quizzes (10%)",
+        bibliography: "HTML and CSS: Design and Build Websites by Jon Duckett<br>JavaScript: The Good Parts by Douglas Crockford<br>Eloquent JavaScript by Marijn Haverbeke",
+        prerequisites: "Computer Science 101"
+    }
+};
+
+// Function to open the modal with course details
+function openCourseModal(courseId) {
+    const course = courseDetails[courseId];
+    if (!course) return;
+    
+    document.getElementById('modalCourseTitle').textContent = course.title;
+    document.getElementById('modalDescription').textContent = course.description;
+    document.getElementById('modalInstructor').textContent = course.instructor;
+    document.getElementById('modalHours').textContent = course.hours;
+    document.getElementById('modalCredits').textContent = course.credits;
+    document.getElementById('modalExams').textContent = course.exams;
+    document.getElementById('modalBibliography').innerHTML = course.bibliography;
+    document.getElementById('modalPrerequisites').textContent = course.prerequisites;
+    
+    document.getElementById('courseModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// Function to close the modal
+function closeCourseModal() {
+    document.getElementById('courseModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal if clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('courseModal');
+    if (event.target === modal) {
+        closeCourseModal();
+    }
+}
+
+// Search function to filter courses in real-time
+function searchCourses() {
+    // Get the text entered by the user and convert to lowercase
+    const searchInput = document.getElementById('courseSearchInput').value.toLowerCase();
+    
+    // Select all course cards on the page
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    // Loop through each course card
+    courseCards.forEach(card => {
+        // Extract the course title and convert to lowercase
+        const title = card.querySelector('.course-title').textContent.toLowerCase();
+        
+        // Check if the search text appears in the title
+        if (title.includes(searchInput)) {
+            // If match found: show the card
+            card.style.display = 'flex';
+        } else {
+            // Otherwise: hide the card
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+
+</html>

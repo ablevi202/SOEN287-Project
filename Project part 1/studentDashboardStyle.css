@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f3ee;
+}
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 0 0 15px 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo h3 {
+    margin: 0;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+    gap: 5px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 15px 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgb(202, 201, 201);
+}
+
+.nav-link.active {
+    background-color: #f8a928;
+    color: white;
+    font-weight: 600;
+}
+
+.nav-links img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+#classes {
+	width: 50rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10rem;
+}
+
+#class-deck {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: white;
+	padding: 5px;
+	gap: 5px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	border-radius: 7px;
+
+}
+
+#class-deck div {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	margin: 0.125rem;
+	border-radius: 7px;
+}
+
+#class-deck div a{
+	text-decoration: none;
+	color: black;
+	display: block;
+	font-family: arial;
+	background-color: #f8a928;
+	color: #000;
+	padding: 40px;
+	font-size: 30px;
+	text-align: center;
+	border-radius: 5px;
+
+}
+
+#class-deck div a:hover {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	background-color: #d99423;
+
+}
+
+#upcoming-assignments {
+	margin-top: 6rem;
+
+}
+
+#assignment-deck {
+	display: grid;
+	width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+	margin-bottom: 5rem;
+	background-color: white;
+	padding: 5px;
+	gap: 5px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	border-radius: 7px;
+
+}
+
+#assignment-deck div {
+	padding: 10px
+}
