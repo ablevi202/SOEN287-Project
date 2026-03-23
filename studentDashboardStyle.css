@@ -1,8 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f3ee;
+    background-color: #F7F3EE;
 }
 
+h1 {
+	style="font-family:arial;
+	font-weight:bold;
+	text-align:center;
+}
 
 
 .navbar {
@@ -124,13 +129,14 @@ body {
 
 #assignment-deck {
 	display: grid;
-	width: 40rem;
+	width: 22rem;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 1rem;
 	margin-bottom: 5rem;
 	background-color: white;
 	padding: 5px;
+	padding-bottom: 2rem;
 	gap: 5px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 	border-radius: 7px;

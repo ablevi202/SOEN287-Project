@@ -2,30 +2,31 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="studentDashboardStyle.css">
+		<script src="nav-active.js"></script>
 	</head>
-	<body style="background-color:#fff5e6;">
+	<body>
 		<nav class = "navbar">
 
 			<div class = "logo">
-				<img src = "book.webp" alt = "Logo">
+				<a href="studentDashboard.html"><img src = "images/book.webp" alt = "Logo"></a>
 				<h3>Smart Course Companion</h3>
 			</div>
 
 			<ul class = "nav-links">
 				<li><a href="studentDashboard.html" class="nav-link">Home</a></li>
 				<li><a href="student-addclass.html" class="nav-link">Add a class</a></li>
-				<li><a href="contact-us.html" class="nav-link">Contact us</a></li>
-				<li><a href="student-profil.html"> <img src = "icon.webp" alt = "User Icon"></a></li>
+			        <li><a href="index.html" class="nav-link">Logout</a></li>
+				<li><a href="studentmanageaccountpage.html"> <img src = "images/icon.webp" alt = "User Icon"></a></li>
 			</ul>
 		</nav>
 		
 		<div id="classes">
-			<h1 style="font-family:arial; font-weight:bold; text-align:center;">Your Enrolled Classes</h1>
+			<h1>Your Enrolled Classes</h1>
 			<div id="class-deck"></div>
 		</div>
 
 		<div id="upcoming-assignments">
-			<h1 style="font-family:arial; font-weight:bold; text-align:center;">Upcoming Assignments</h1>
+			<h1>Upcoming Assignments</h1>
 			<div id="assignment-deck"></div>
 		</div>
 
@@ -122,7 +123,7 @@
 			for(let i = 0; i < assignments.length; i++){
 				let dueDateString = assignments[i].dueDate.toDateString().substring(0, 10);
 				dueDateString = dueDateString.substring(0, 3) + "," + dueDateString.substring(3);
-				z.innerHTML += "<div><h1 style=\"font-family:arial;\">" + dueDateString + "</h1><p style=\"font-family:arial;\">" + assignments[i].className + " - " + assignments[i].name + "</p></div>";
+				z.innerHTML += "<div><h1>" + dueDateString + "</h1><p style=\"font-family:arial;margin: 0 auto;text-align:center;\">" + assignments[i].className + " - " + assignments[i].name + "</p></div>";
 			}			
     
 		</script>

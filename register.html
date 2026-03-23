@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- Register Form -->
+    <form class="LoginRegister-Form" onsubmit="return false;">
+        <div class="form-container">
+            
+            <header class="LoginRegister-Header"> 
+                <h2>Register</h2>
+                <hr/>
+                <h3 class = "ErrorMessage" id = "registerError"> </h3> 
+            </header>
+
+            <!--  Name -->
+            <div class="form-group">
+                <label for="StudentName">Name <span class="required">*</span></label>
+                <input type="text" id="Name" class="StudentName" placeholder="Your name" required>
+            </div>
+
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="StudentFirstName">First Name <span class="required">*</span></label>
+                <input type="text" id="FirstName" class="StudentFirstName" placeholder="Your first name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="Email">Email <span class="required">*</span></label>
+                <input type="email" id="RegisterEmail" class="Email" placeholder="Your email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="Password">Password <span class="required">*</span></label>
+                <input type="password" id="RegisterPassword" class="Password" placeholder="Password" required>
+            </div>
+
+            <!--Confirm Password -->
+            <div class="form-group">
+                <label for="PasswordChecker">Confirm Password <span class="required">*</span></label>
+                <input type="password" id="PasswordChecker" class="PasswordChecker" placeholder="Confirm Password" required>
+            </div>
+
+                        <!-- User Type -->
+            <div class="form-group">
+                <label>Account Type <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="userType" value="student" id="studentRadio" checked required>
+                        Student
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="userType" value="instructor" id="instructorRadio" required>
+                        Instructor
+                    </label>
+                </div>
+            </div>
+
+            <!-- Button Register -->
+            <button type="button" id="RegisterButton" class="LoginRegisterButton" onclick="createUser()">Register</button>
+
+            <!-- Footer -->
+            <footer class="Footer-Login">
+                Already have an account ? <a href="index.html">Login</a>
+            </footer>
+        
+        </div>
+    </form>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+    
+    </div>
+
+</body>
+
+
+
+
+
+
+
+</html>

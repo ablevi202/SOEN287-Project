@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Management</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f1ee;
+      color: #222;
+    }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 0 0 15px 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo h3 {
+    margin: 0;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+    gap: 5px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 15px 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgb(202, 201, 201);
+}
+
+.nav-link.active {
+    background-color: #f8a928;
+    color: white;
+    font-weight: 600;
+}
+
+.nav-links img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+    .page-wrapper {
+      width: 60%;
+      margin: 50px auto;
+      margin-top: 8rem;
+    }
+
+    .panel {
+      background-color: white;
+      border: 1px solid #444;
+      border-radius: 14px;
+      padding: 30px;
+      margin-bottom: 25px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #f4ae2b;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class = "navbar">
+
+    <div class = "logo">
+        <a href="instructorDashboard.html">
+	<img src="images/book.webp" id="logo">
+	</a>
+        <h3>Smart Course Companion</h3>
+    </div>
+
+    <ul class = "nav-links">
+        <li><a href="instructorDashboard.html" class="nav-link">Home</a></li>
+        <li><a href="InstructorCreateClassPage.html" class="nav-link">Add a class</a></li>
+        <li><a href="index.html" class="nav-link">Logout</a></li>
+        <li><a href="instructormanageaccountpage.html"> <img src = "images/icon.webp" alt = "User Icon"></a></li>
+    </ul>
+
+</nav>
+
+
+  <div class="page-wrapper">
+    <div class="panel">
+      <h1 id="course-title">Course Management</h1>
+      <p><strong>Term:</strong> Winter 2026</p>
+    </div>
+
+    <div class="panel">
+      <h2>Assessment Categories and Weight</h2>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Weight (%)</th>
+        </tr>
+        <tr>
+          <td>Assignments</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Midterm</td>
+          <td>40</td>
+        </tr>
+        <tr>
+          <td>Final</td>
+          <td>50</td>
+        </tr>
+      </table>
+
+      <button class="btn" type="button">Add Category</button>
+      <button class="btn" type="button">Edit Weights</button>
+    </div>
+
+    <div class="panel">
+      <h2>Course Status</h2>
+      <p>This course is currently enabled.</p>
+      <button class="btn" type="button">Disable Course</button>
+    </div>
+
+    <div class="panel">
+      <h2>Usage Statistics</h2>
+      <p>Students completed assessments: 73%</p>
+      <p>Students entered grades: 62%</p>
+    </div>
+  </div>
+
+  <script>
+    const courseId = localStorage.getItem("courseId");
+    const title = document.getElementById("course-title");
+
+    if (courseId === "course1") {
+      title.innerHTML = "SOEN 287 - Web Programming";
+    } else if (courseId === "course2") {
+      title.innerHTML = "MAST 218 - Multivariable Calculus";
+    } else if (courseId === "course3") {
+      title.innerHTML = "COMP 233 - Statistics";
+    } else if (courseId === "course4") {
+      title.innerHTML = "COMP 345 - Data Analysis";
+    }
+  </script>
+
+</body>
+</html>
