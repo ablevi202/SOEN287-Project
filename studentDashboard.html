@@ -67,7 +67,8 @@
 				instructor: "Joe",
 				assignments: [],
 				courseAvg: 91.2,
-				courseAverages: [95, 98, 99, 94, 93, 90, 84, 87, 86, 91.2]
+				courseAverages: [95, 98, 99, 94, 93, 90, 84, 87, 86, 91.2],
+				numOfStudents: 12
 			});
     
 			const classes = [class1, class2, class3, class4];
@@ -85,35 +86,40 @@
 			let assignment1 = new Object({
 				dueDate: new Date(2026, 2, 27),
 				name: "Assignment 1",
-				className: "Soen 287"
+				className: "Soen 287",
+				score: 0
 			});
 			class1.assignments.push(assignment1);
 
 			let assignment2 = new Object({
 				dueDate: new Date(2026, 3, 1),
 				name: "Assignment 3",
-				className: "Comp 331"
+				className: "Comp 331",
+				score: 0
 			});
 			class3.assignments.push(assignment2);
 
 			let assignment3 = new Object({
 				dueDate: new Date(2026, 3, 1),
 				name: "Assignment 2",
-				className: "Soen 287"
+				className: "Soen 287",
+				score: 0
 			});
 			class1.assignments.push(assignment3);
 
 			let assignment4 = new Object({
 				dueDate: new Date(2026, 3, 9),
 				name: "Project",
-				className: "Comp 345"
+				className: "Comp 345",
+				score: 0
 			});
 			class2.assignments.push(assignment4);
 
 			let assignment5 = new Object({
 				dueDate: new Date(2026, 3, 12),
 				name: "Theory Assignment 1",
-				className: "Soen 481"
+				className: "Soen 481",
+				score: 0
 			});
 			class4.assignments.push(assignment5);
 

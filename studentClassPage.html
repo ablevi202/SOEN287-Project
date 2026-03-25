@@ -23,9 +23,10 @@
 		</nav>
 
 		<div id="intro">
-			<h1 id="className" style="font-family:arial; font-weight:bold; text-align:center; font-size: 40px;"></h1>
-			<p id="classInstructor" style="font-family:arial; text-align:center; padding-top:0.1rem; margin-top:0;"></p>
-			<p id="classAverage" style="font-family:arial; text-align:center;">Current Course Average: </p>
+			<h1 id="className" style="font-weight:bold; text-align:center; font-size: 40px;"></h1>
+			<p id="classInstructor" style="text-align:center; padding-top:0.1rem; margin-top:0;"></p>
+			<p id="classAverage" style="text-align:center;">Current Course Average: </p>
+			<p id="score" style="text-align:center;"></p>
 		</div>
 
 		<div id="assignments">
@@ -54,6 +55,7 @@
 			const name = document.getElementById("className");
 			const instructor = document.getElementById("classInstructor");
 			const average = document.getElementById("classAverage");
+			const score = document.getElementById("score");
 		
 			let thisClass = JSON.parse(localStorage.getItem("className"));		
 
@@ -61,17 +63,27 @@
 			instructor.innerHTML = "Instructor: " + thisClass.instructor;
 			average.innerHTML += thisClass.courseAvg + "%";
 
+
 			const assignmentlist = document.getElementById("assignment-deck");
 			for(let i = 0; i < thisClass.assignments.length; i++){
-				assignmentlist.innerHTML += "<div class=\"assignment-line\"><p>" + thisClass.assignments[i].name + "</p><label for=\"gnum\">Enter Grade: </label><input type=\"text\" id=\"grade-numerator\" name=\"gnum\"></input><label for=\"den\"> / </label><input type=\"text\" id=\"grade-denominator\" name=\"gden\"></input><button type=\"button\">Mark Complete</button></div>";
+				assignmentlist.innerHTML += "<form id=\"form\"><div class=\"assignment-line\"><p>" + thisClass.assignments[i].name + "</p><label for=\"gnum\">Enter Grade: </label><input type=\"text\" id=\"grade-numerator\" name=\"gnum\"></input><label for=\"den\"> / </label><input type=\"text\" id=\"grade-denominator\" name=\"gden\"></input><button type=\"submit\" onsubmit=\"return false;\">Mark Complete</button></div></form>";
 			}
+
+			function updateGrade(event) {
+
+				let num = event.target.gnum.value;
+				let den = event.target.gden.value;
+				let grade = num / den * 100;
+				thisClass.courseAvg = ((thisClass.courseAvg * thisClass.courseAverages.length) + grade) / (thisClass.courseAverages.length + 1);
+				thisClass.courseAverages.push(thisClass.courseAvg);
+			}
+
+			document.getElementById("form").addEventListener('submit', updateGrade);
 
 			let xValues = [];
 			for(let i = 0; i < thisClass.courseAverages.length; i++){
 				xValues.push(i);
 			}
-			console.log(xValues);
-			console.log(thisClass);
 
 			const scoreChart = new Chart("scoreChart", {
 				type: "line",
