@@ -20,7 +20,7 @@ http.createServer(function(req, res) {
 	}
 
 	// Sends HTML files
-	if(req.method === 'GET' && req.url.substring(req.url.length - 5, req.url.length) === ".html"){
+	else if(req.method === 'GET' && req.url.substring(req.url.length - 5, req.url.length) === ".html"){
 		var filePath = path.join(__dirname, req.url);
 		if (fs.existsSync(filePath)){
 			var stat = fileSystem.statSync(filePath);
@@ -40,7 +40,7 @@ http.createServer(function(req, res) {
 	}
 
 	// Sends .css files
-	if(req.method === 'GET' && req.url.substring(req.url.length - 4, req.url.length) === ".css"){
+	else if(req.method === 'GET' && req.url.substring(req.url.length - 4, req.url.length) === ".css"){
 		var filePath = path.join(__dirname, req.url);
 		if (fs.existsSync(filePath)){
 			var stat = fileSystem.statSync(filePath);
@@ -60,7 +60,7 @@ http.createServer(function(req, res) {
 	}
 
 	// Sends .js files
-	if(req.method === 'GET' && req.url.substring(req.url.length - 3, req.url.length) === ".js"){
+	else if(req.method === 'GET' && req.url.substring(req.url.length - 3, req.url.length) === ".js"){
 		var filePath = path.join(__dirname, req.url);
 		if (fs.existsSync(filePath)){
 			var stat = fileSystem.statSync(filePath);
@@ -80,7 +80,7 @@ http.createServer(function(req, res) {
 	}
 
 	// Sends image files
-	if(req.method === 'GET' && req.url.substring(0, 8) === "/images/"){
+	else if(req.method === 'GET' && req.url.substring(0, 8) === "/images/"){
 		var filePath = path.join(__dirname, req.url);
 		if (fs.existsSync(filePath)){
 			var stat = fileSystem.statSync(filePath);
@@ -98,6 +98,11 @@ http.createServer(function(req, res) {
 			res.end("Error 404: Image file '" + req.url + "' not found");
 		}
 	}
+	else{
+		res.writeHead(404, {"content-type": "text/plain"});
+		res.end("Error 404: File '" + req.url + "' not found");
+	}
+
 
 
 }).listen(80);
