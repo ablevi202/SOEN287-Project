@@ -189,28 +189,26 @@ label {
 		<div class = "containers">
 			<div class = "options">
 				<label style="padding:10px">Current Email: </label>
-				<div id="Email"> </div>
+				<div id="email"> </div>
 			</div>
 			<div class = "options">
 				<form class="options">
 					<label>New Email: </label>
-					<input type="text"> 
+					<input id="newemail" type="text"> 
+					<button type="button" class="button" onclick="showEmail()">Confirm</button>
 				</form>
 			</div>
-			<div class = "options">
-				<form class="options">
-					<label>Confirm New Email: </label>
-					<input type="text"> 
-				</form>
-			</div>
+
 			<div class = "options">
 				<input class = "button" type="button" value="Back">
-				<input class = "button" type="button" value="Confirm">
 			</div>
 		</div>
 		
 		<script>
-
+			function showEmail(){
+				var email = document.getElementById("newemail").value;
+				document.getElementById("email").innerHTML = email;
+			}
 		</script>
 		
 		

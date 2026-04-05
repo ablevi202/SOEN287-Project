@@ -191,26 +191,24 @@ label {
 				<label style="padding:10px">Current ID: </label>
 				<div id="ID"> </div>
 			</div>
+		
 			<div class = "options">
 				<form class="options">
 					<label>New ID: </label>
-					<input type="text"> 
-				</form>
-			</div>
-			<div class = "options">
-				<form class="options">
-					<label>Confirm New ID: </label>
-					<input type="text"> 
+					<input id="newid" type="text"> 
+					<button class="button" type="button" onclick="showID()"> Confirm</button>
 				</form>
 			</div>
 			<div class = "options">
 				<input class = "button" type="button" value="Back">
-				<input class = "button" type="button" value="Confirm">
 			</div>
 		</div>
 		
 		<script>
-
+			function showID(){
+				var id = document.getElementById("newid").value;
+				document.getElementById("ID").innerHTML = id;
+			}
 		</script>
 		
 		

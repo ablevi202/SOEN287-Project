@@ -192,25 +192,24 @@ label {
 				<div id="name"> </div>
 			</div>
 			<div class = "options">
-				<form class="options">
+				<form class="options" method="POST">
 					<label>New Name: </label>
-					<input type="text"> 
-				</form>
-			</div>
-			<div class = "options">
-				<form class="options">
-					<label>Confirm New Name: </label>
-					<input type="text"> 
+					<input id="newname" type="text"> 
+					<button  class="button" type="button" onclick="showName()"> Confirm </button>
 				</form>
 			</div>
 			<div class = "options">
 				<input class = "button" type="button" value="Back">
-				<input class = "button" type="button" value="Confirm">
 			</div>
 		</div>
 		
 		<script>
-
+			function showName(){
+				var name = document.getElementById("newname").value;
+				document.getElementById("name").innerHTML = name;
+			}
+			
+			
 		</script>
 		
 		
