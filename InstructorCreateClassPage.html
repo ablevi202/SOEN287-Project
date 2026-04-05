@@ -1,141 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create course</title>
-    <Style>
-        body{
-      		margin: 0;
-      		font-family: Arial, sans-serif;
-      		background-color: #f3f1ee;
-      		color: #222;
-            	border: 20px;
-        }
+<meta charset="UTF-8">
+<title>Create Course</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f1ee;
+}
+
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    background-color: #ffffff;
-    z-index: 1000;
+    padding: 15px 40px;
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    border-radius: 0 0 15px 15px;
 }
 
 .logo {
+    font-weight: bold;
+}
+
+.nav-links {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
+    gap: 25px;
 }
 
-.logo img {
-    height: 40px;
-    width: auto;
-}
-
-.logo h3 {
-    margin: 0;
-    color: black;
-    font-size: 1.2rem;
-}
-
-.navbar ul {
-    list-style: none;
-}
-
-.navbar .nav-links {
-    display: flex;
-    align-items: center;
-    margin-right: 100px;
-    gap: 5px;
-}
-
-.nav-link {
+.nav-links a {
     text-decoration: none;
     color: black;
-    padding: 15px 20px;
-    display: inline-block;
-    transition: background-color 0.3s;
+    font-weight: 500;
 }
 
-.nav-link:hover {
-    background-color: rgb(202, 201, 201);
+/* PAGE */
+.container {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
 }
 
-.nav-link.active {
-    background-color: #f8a928;
+.form-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #f4ae2b;
+    border: none;
     color: white;
-    font-weight: 600;
+    font-weight: bold;
+    cursor: pointer;
 }
-
-.nav-links img {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-
-        .create-layout{
-            padding: 40px;
-            max-width: 500px;
-            margin: auto;
-	    margin-top: 8rem;
-        }
-
-        input, select{
-            padding: 8px;
-            margin-bottom: 15px;
-        }
-
-        button{
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-    </Style>
+</style>
 </head>
+
 <body>
-<nav class = "navbar">
 
-    <div class = "logo">
-        <a href="instructorDashboard.html">
-	<img src="images/book.webp" id="logo">
-	</a>
-        <h3>Smart Course Companion</h3>
+<!-- NAV -->
+<div class="navbar">
+    <div class="logo">Smart Course Companion</div>
+
+    <div class="nav-links">
+        <a href="/instructorDashboard.html">Home</a>
+        <a href="/InstructorCreateClassPage.html">Add a class</a>
+        <a href="/index.html">Logout</a>
     </div>
+</div>
 
-    <ul class = "nav-links">
-        <li><a href="instructorDashboard.html" class="nav-link">Home</a></li>
-        <li><a href="InstructorCreateClassPage.html" class="nav-link">Add a class</a></li>
-        <li><a href="index.html" class="nav-link">Logout</a></li>
-        <li><a href="instructormanageaccountpage.html"> <img src = "images/icon.webp" alt = "User Icon"></a></li>
-    </ul>
+<!-- FORM -->
+<div class="container">
+    <div class="form-box">
 
-</nav>
+        <h2>Create Course</h2>
 
-    <main class="create-layout">
+        <input id="courseCode" placeholder="Course Code (ex: SOEN 287)">
 
-    <h2>Create new course</h2>
+        <select id="term">
+            <option>Winter 2026</option>
+            <option>Summer 2026</option>
+            <option>Fall 2026</option>
+        </select>
 
-    <label>Course Code</label>
-    <input type="text"> 
+        <button onclick="createCourse()">Create</button>
 
-    <label>Term</label>
-    <select>
-        <option>Winter 2026</option>
-        <option>Summer 2026</option>
-        <option>Fall 2026</option>
-    </select>
+    </div>
+</div>
 
-    <button type="button"
-    onclick="window.location.href='InstructorDashboard.html'">
-    create
-    </button>
-    
+<script>
+function createCourse() {
+
+    const code = document.getElementById("courseCode").value.trim();
+    const term = document.getElementById("term").value;
+
+    if (!code) {
+        alert("Enter course code");
+        return;
+    }
+
+    fetch("/create-course", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            code: code,
+            term: term
+        })
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert("Course created successfully!");
+        window.location.href = "/instructorDashboard.html";
+    })
+    .catch(err => {
+        console.error("ERROR:", err);
+        alert("Error creating course");
+    });
+}
+</script>
+
 </body>
 </html>
