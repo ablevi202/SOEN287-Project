@@ -275,11 +275,12 @@ fetch("/courses")
     data.forEach(course => {
 
         deck.innerHTML += `
-        <div class='course-box' onclick="openCoursePage('${course.courseID}')">
-            <a href='InstructorClassPage.html'>
-                ${course.name}
-            </a>
-        </div>
+        <div class='course-box'>
+    <a href='InstructorClassPage.html'
+       onclick="openCoursePage('${course.courseID}')">
+        ${course.name}
+    </a>
+</div>
         `;
 
     });
