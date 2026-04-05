@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
 
@@ -162,17 +163,15 @@ h1 {
 <nav class = "navbar">
 
     <div class = "logo">
-        <a href="instructorDashboard.html">
-	<img src="images/book.webp" id="logo">
-	</a>
+	<a href="studentDashboard.html"><img src = "images/book.webp" alt = "Logo"></a>
         <h3>Smart Course Companion</h3>
     </div>
 
     <ul class = "nav-links">
-        <li><a href="instructorDashboard.html" class="nav-link">Home</a></li>
-        <li><a href="InstructorCreateClassPage.html" class="nav-link">Add a class</a></li>
+        <li><a href="studentDashboard.html" class="nav-link">Home</a></li>
+        <li><a href="student-addclass.html" class="nav-link">Add a class</a></li>
         <li><a href="index.html" class="nav-link">Logout</a></li>
-        <li><a href="instructormanageaccountpage.html"> <img src = "images/icon.webp" alt = "User Icon"></a></li>
+        <li><a href="studentmanageaccountpage.html"> <img src = "images/icon.webp" alt = "User Icon"></a></li>
     </ul>
 
 </nav>
@@ -183,28 +182,50 @@ h1 {
 			<h2 class = "titles"> Details </h2>
 			<div class = "options">
 				<h3 class = "text" > Name: </h3>
-				<button class = "button" type="button"> Change </button>
+				<div id="name">  </div>
+				<button class = "button" type="button" onclick="changeName()"> Change </button>
 			</div>
 			<div class = "options">
 				<h3 class = "text"> Email: </h3>
-				<button class = "button" type="button"> Change </button>
+				<div id="Email">  </div>
+				<button class = "button" type="button" onclick="changeEmail()"> Change </button>
 			</div>
 			<div class = "options">
 				<h3 class = "text"> Username: </h3>
-				<button class = "button" type="button"> Change </button>
+				<div id="Username">  </div>
+				<button class = "button" type="button" onclick="changeUsername()"> Change </button>
 			</div>
+
 		</div>
 		<div class = "containers">
 			<h2 class = "titles" > Security </h2>
 			<div class = "options">
 				<h3 class = "text"> Password: </h3>
-				<button class = "button" type="button"> Change </button>
+				<div id="Password">  </div>
+				<button class = "button" type="button" onclick="changePassword()"> Change </button>
 			</div>
 			<div class = "options">
 				<h3 class = "text"> Delete Account </h3>
 				<button id = "delete" type="button"> Delete </button>
 			</div>
 		</div>
+		<script>
+			function changeName(){
+				window.open("ChangeName.html", "_blank");
+			}
+			
+			function changeEmail(){
+				window.open("ChangeEmail.html", "_blank");
+			}
+			
+			function changeUsername(){
+				window.open("ChangeUsername.html", "_blank");
+			}
+			
+			function changePassword(){
+				window.open("ChangePassword.html", "_blank");
+			}
+		</script>
 		
 </body>
 </html>
