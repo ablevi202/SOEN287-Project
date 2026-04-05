@@ -53,11 +53,19 @@ body{
     float:right;
 }
 
-.nav-right a{
-    display:block;
-    padding:28px 20px;
-    text-decoration:none;
-    color:black;
+.nav-right a {
+    display: block;
+    padding: 28px 20px;
+    text-decoration: none;
+    color: black;
+
+    border-radius: 8px;          /* makes box rounded */
+    transition: all 0.2s ease;   /* smooth animation */
+}
+
+.nav-right a:hover {
+    background-color: #f4ae2b;   /* orange */
+    color: white;
 }
 
 #user-icon{
@@ -98,22 +106,28 @@ h1{
 
 /* COURSE  */
 
-.course-box{
-    background:#f4ae2b;
-    height:120px;
+.course-box {
+    background: #f4ae2b;
+    height: 120px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    font-size:22px;
-    font-weight:bold;
+    font-size: 22px;
+    font-weight: bold;
 
-    border-radius:6px;
+    border-radius: 6px;
 
-    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 
-    transition:transform .15s;
+    transition: all 0.2s ease; /* IMPORTANT */
+}
+
+.course-box:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
 }
 
 
@@ -207,30 +221,7 @@ name:"John Doe"
 
 /* courses */
 
-const courses = [
 
-{objectName:"course1", code:"SOEN 287"},
-{objectName:"course2", code:"MAST 218"},
-{objectName:"course3", code:"COMP 233"},
-{objectName:"course4", code:"COMP 345"}
-
-];
-
-const deck = document.getElementById("class-deck");
-
-for(let i=0;i<courses.length;i++){
-
-deck.innerHTML +=
-
-"<div class='course-box' onclick=\"openCoursePage('" + courses[i].objectName + "')\">" +
-
-"<a href='InstructorClassPage.html'>" +
-
-courses[i].code +
-
-"</a></div>";
-
-}
 
 
 function openCoursePage(courseId){
@@ -243,7 +234,7 @@ localStorage.setItem("courseId",courseId);
 /* assignments */
 
 
-const assignments=[
+/*const assignments=[
 
 {date:"Fri, Mar 27",text:"SOEN 287 - Assignment 1"},
 {date:"Wed, Apr 01",text:"COMP 233 - Assignment 3"}
@@ -264,8 +255,38 @@ assignmentDeck.innerHTML +=
 
 "</div>";
 
-}
+}*/
 
+</script>
+
+<script>
+fetch("/courses")
+.then(res => res.json())
+.then(data => {
+
+    fetch("/courses")
+.then(res => res.json())
+.then(data => {
+
+    const deck = document.getElementById("class-deck");
+
+    deck.innerHTML = ""; // clear existing
+
+    data.forEach(course => {
+
+        deck.innerHTML += `
+        <div class='course-box' onclick="openCoursePage('${course.courseID}')">
+            <a href='InstructorClassPage.html'>
+                ${course.name}
+            </a>
+        </div>
+        `;
+
+    });
+
+});
+
+});
 </script>
 
 </body>
